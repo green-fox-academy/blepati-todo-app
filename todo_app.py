@@ -5,8 +5,8 @@ import sys
 if len(sys.argv) == 2:
     todo_file = open("todo_data.txt")
     todos = todo_file.readlines()
-    for todo in todos:
-        print(todo)
+    for todo in range(1, len(todos) + 1):
+        print(str(todo) + " - " + todos[todo - 1].rstrip())
 else:
     print("Python Todo application")
     print("=======================")
