@@ -6,8 +6,12 @@ def print_todos():
     todo_file = open("todo_data.txt")
     todos = todo_file.readlines()
     todo_file.close()
-    for todo in range(1, len(todos) + 1):
-        print(str(todo) + " - " + todos[todo - 1].rstrip())
+    if len(todos) == 0:
+        print("no todos for today")
+    else:
+        for todo in range(1, len(todos) + 1):
+            print(str(todo) + " - " + todos[todo - 1].rstrip())#leszedi a white spacet a txt file sorai vegerol
+
 
 def print_help():
     help_content = ["Python Todo application",
@@ -21,8 +25,11 @@ def print_help():
     for content in help_content:
         print(content)
 
+def controller(arg):
+    if len(sys.argv) == 2:
+        if sys.argv[1] == "-l":
+            print_todos()
+    else:
+        print_help()
 
-if len(sys.argv) == 2:
-    print_todos()
-else:
-    print_help()
+controller(sys.argv)
