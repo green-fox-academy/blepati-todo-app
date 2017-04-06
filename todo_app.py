@@ -25,6 +25,14 @@ def print_help():
     for content in help_content:
         print(content)
 
+def add_todo():
+    todo_file = open("todo_data.txt", "a")
+    cont = "buy candy"
+    todos = todo_file.writelines(cont)
+    todo_file.close()
+
+add_todo()
+
 def controller(arg):
     if len(sys.argv) == 2:
         if sys.argv[1] == "-l":
