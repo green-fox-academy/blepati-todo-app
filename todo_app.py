@@ -28,7 +28,7 @@ def print_help():
 def add_todo():
     todo_file = open("todo_data.txt", "a")
     if len(sys.argv) > 2:
-        cont = sys.argv[2]
+        cont = str(sys.argv[2]) + "\n"
         todos = todo_file.writelines(cont)
         todo_file.close()
         print("new task added")
